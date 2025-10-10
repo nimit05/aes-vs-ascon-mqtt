@@ -1,13 +1,11 @@
 import ascon
 import os
-
-KEY = os.urandom(16)   # 128-bit
-NONCE = os.urandom(16) # 128-bit
+from config import ASCON_KEY, ASCON_NONCE
 
 def ascon_encrypt(plaintext: str) -> tuple:
-    ciphertext = ascon.encrypt(KEY, NONCE, plaintext.encode(), b"")
-    return ciphertext, NONCE
+    ciphertext = ascon.encrypt(ASCON_KEY, ASCON_NONCE, plaintext.encode(), b"")
+    return ciphertext, ASCON_NONCE
 
-def ascon_decrypt(ciphertext: bytes, nonce: bytes) -> str:
-    plaintext = ascon.decrypt(KEY, nonce, ciphertext, b"")
+def ascon_decrypt(ciphertext: bytes) -> str:
+    plaintext = ascon.decrypt(ASCON_KEY, ASCON_NONCE, ciphertext, b"")
     return plaintext.decode()

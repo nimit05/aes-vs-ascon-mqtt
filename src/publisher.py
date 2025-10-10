@@ -11,7 +11,17 @@ client = mqtt.Client()
 client.connect(BROKER, PORT, 60)
 
 for i in range(5):
+
     plaintext = f"Hello MQTT {i}".encode()
+
+    if i == 0:
+
+        if ALGO == "AES":
+            (ciphertext, tag), metrics = measure_encryption(aes_encrypt, plaintext)
+        else:
+            (ciphertext, tag), metrics = measure_encryption(ascon_encrypt, plaintext)
+
+        continue
 
     # Measure encryption metrics
     if ALGO == "AES":

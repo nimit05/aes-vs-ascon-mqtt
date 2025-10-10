@@ -10,13 +10,12 @@ def on_message(client, userdata, msg):
     try:
         ciphertext, tag = msg.payload.split(b"||")
 
-        # Decrypt and measure metrics
         if ALGO == "AES":
             plaintext, metrics = measure_encryption(aes_decrypt, ciphertext, tag)
         else:
-            plaintext, metrics = measure_encryption(ascon_decrypt, ciphertext, tag)
+            plaintext, metrics = measure_encryption(ascon_decrypt, ciphertext)
 
-        print(f"Received (decrypted, {ALGO}): {plaintext.decode()}")
+        print(f"Received (decrypted, {ALGO}): {plaintext}")  # plaintext is already str
         print("Decryption metrics:", metrics)
     except Exception as e:
         print("Decryption error:", e)
