@@ -1,24 +1,28 @@
 import paho.mqtt.client as mqtt
 from config import BROKER, PORT, TOPIC
-from aes_module import aes_decrypt
-from ascon_module import ascon_decrypt
+from crypto_manager import decrypt, ALGO_AES, ALGO_ASCON
 from metrics import measure_encryption
 
-ALGO = "AES"  # Must match publisher
+ALGO = ALGO_AES  # Must match publisher
 
 def on_message(client, userdata, msg):
     try:
-        ciphertext, tag = msg.payload.split(b"||")
-
-        if ALGO == "AES":
-            plaintext, metrics = measure_encryption(aes_decrypt, ciphertext, tag)
+        if ALGO == ALGO_AES:
+            encrypted_b64, tag_b64 = msg.payload.split(b"||")
         else:
-            plaintext, metrics = measure_encryption(ascon_decrypt, ciphertext)
+            encrypted_b64, tag_b64 = msg.payload, None
 
-        print(f"Received (decrypted, {ALGO}): {plaintext}")  # plaintext is already str
-        print("Decryption metrics:", metrics)
+        (plaintext, metrics) = measure_encryption(decrypt, encrypted_b64, ALGO, tag_b64)
+
+        if plaintext:
+            print(f"\n[Subscriber] Received ({ALGO}): {plaintext.decode()}")
+            print("[Subscriber Metrics]", metrics)
+        else:
+            print("[Subscriber] Decryption returned None!")
+
     except Exception as e:
         print("Decryption error:", e)
+        print("------------------------------------------------------------")
 
 client = mqtt.Client()
 client.on_message = on_message

@@ -1,39 +1,27 @@
 import paho.mqtt.client as mqtt
-import time
 from config import BROKER, PORT, TOPIC
-from aes_module import aes_encrypt
-from ascon_module import ascon_encrypt
+from crypto_manager import encrypt, ALGO_AES, ALGO_ASCON
 from metrics import measure_encryption
 
-ALGO = "AES"  # or "ASCON"
+ALGO = ALGO_AES  # or ALGO_AES
 
 client = mqtt.Client()
 client.connect(BROKER, PORT, 60)
 
-for i in range(5):
+messages = [b"Hello", b"Secure IoT", b"Final Test"]
 
-    plaintext = f"Hello MQTT {i}".encode()
+for msg in messages:
+    (result, metrics) = measure_encryption(encrypt, msg, ALGO)
+    ciphertext, tag = result
 
-    if i == 0:
-
-        if ALGO == "AES":
-            (ciphertext, tag), metrics = measure_encryption(aes_encrypt, plaintext)
-        else:
-            (ciphertext, tag), metrics = measure_encryption(ascon_encrypt, plaintext)
-
-        continue
-
-    # Measure encryption metrics
-    if ALGO == "AES":
-        (ciphertext, tag), metrics = measure_encryption(aes_encrypt, plaintext)
+    # Combine ciphertext + tag (if AES)
+    if tag:
+        payload = ciphertext + b"||" + tag
     else:
-        (ciphertext, tag), metrics = measure_encryption(ascon_encrypt, plaintext)
+        payload = ciphertext
 
-    payload = ciphertext + b"||" + tag
     client.publish(TOPIC, payload)
-
-    print(f"Sent (encrypted, {ALGO}): {payload}")
-    print("Encryption metrics:", metrics)
-    time.sleep(1)
+    print(f"\n[Publisher] Sent ({ALGO}): {msg.decode()}")
+    print("[Publisher Metrics]", metrics)
 
 client.disconnect()
