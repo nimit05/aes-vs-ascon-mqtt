@@ -3,7 +3,7 @@ from config import BROKER, PORT, TOPIC
 from crypto_manager import decrypt, ALGO_AES, ALGO_ASCON
 from metrics import measure_encryption
 
-ALGO = ALGO_AES  # Must match publisher
+ALGO = ALGO_ASCON  # Must match publisher
 
 def on_message(client, userdata, msg):
     try:
@@ -15,7 +15,7 @@ def on_message(client, userdata, msg):
         (plaintext, metrics) = measure_encryption(decrypt, encrypted_b64, ALGO, tag_b64)
 
         if plaintext:
-            print(f"\n[Subscriber] Received ({ALGO}): {plaintext.decode()}")
+            # print(f"\n[Subscriber] Received ({ALGO}): {plaintext.decode()}")
             print("[Subscriber Metrics]", metrics)
         else:
             print("[Subscriber] Decryption returned None!")
