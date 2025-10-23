@@ -1,0 +1,109 @@
+-- New Ascon Benchmark Cycle ---
+Free heap before alloc: 51888
+Message Size: 16384
+Average Encryption Time (us): 12868.60
+Encryption Throughput (KB/s): 1243.34
+Average Decryption Time (us): 12946.80
+Decryption Throughput (KB/s): 1235.83
+Decryption verified. First 32 bytes: 	
+
+
+Free heap after: 2680
+Heap used (bytes): 49208
+Free heap (% of total): 3.27%
+--- End of Benchmark Cycle ---
+
+
+--- New Ascon Benchmark Cycle ---
+Free heap before alloc: 51888
+Message Size: 8192
+Average Encryption Time (us): 6453.80
+Encryption Throughput (KB/s): 1239.58
+Average Decryption Time (us): 6495.40
+Decryption Throughput (KB/s): 1231.64
+Decryption verified. First 32 bytes: 	
+
+
+
+--- New Ascon Benchmark Cycle ---
+Free heap before alloc: 51856
+Message Size: 16384
+Average Encryption Time (us): 12868.30
+Encryption Throughput (KB/s): 1243.37
+Average Decryption Time (us): 12947.80
+Decryption Throughput (KB/s): 1235.73
+Decryption verified. First 32 bytes: 	
+
+
+Free heap after: 2648
+Heap used (bytes): 49208
+Free Heap (% of total): 3.23%
+Heap Used (% of total): 60.07%
+--- End of Benchmark Cycle ---
+
+--- New Ascon Benchmark Cycle ---
+Free heap before alloc: 51856
+Message Size: 8192
+Average Encryption Time (us): 6454.50
+Encryption Throughput (KB/s): 1239.45
+Average Decryption Time (us): 6495.30
+Decryption Throughput (KB/s): 1231.66
+Decryption verified. First 32 bytes: 	
+
+
+Free heap after: 27224
+Heap used (bytes): 24632
+Free Heap (% of total): 33.23%
+Heap Used (% of total): 30.07%
+--- End of Benchmark Cycle ---
+
+--- New Ascon Benchmark Cycle ---
+Free heap before alloc: 51856
+Message Size: 4096
+Average Encryption Time (us): 3247.70
+Encryption Throughput (KB/s): 1231.64
+Average Decryption Time (us): 3268.60
+Decryption Throughput (KB/s): 1223.77
+Decryption verified. First 32 bytes: 	
+
+
+Free heap after: 39512
+Heap used (bytes): 12344
+Free Heap (% of total): 48.23%
+Heap Used (% of total): 15.07%
+--- End of Benchmark Cycle ---
+
+--- New Ascon Benchmark Cycle ---
+Free heap before alloc: 51856
+Message Size: 1024
+Average Encryption Time (us): 842.40
+Encryption Throughput (KB/s): 1187.08
+Average Decryption Time (us): 849.10
+Decryption Throughput (KB/s): 1177.72
+Decryption verified. First 32 bytes: 	
+
+
+Free heap after: 48728
+Heap used (bytes): 3128
+Free Heap (% of total): 59.48%
+Heap Used (% of total): 3.82%
+--- End of Benchmark Cycle ---
+
+--- New Ascon Benchmark Cycle ---
+Free heap before alloc: 51856
+Message Size: 512
+Average Encryption Time (us): 441.80
+Encryption Throughput (KB/s): 1131.73
+Average Decryption Time (us): 446.00
+Decryption Throughput (KB/s): 1121.08
+Decryption verified. First 32 bytes: 	
+
+
+Free heap after: 50264
+Heap used (bytes): 1592
+Free Heap (% of total): 61.36%
+Heap Used (% of total): 1.94%
+--- End of Benchmark Cycle ---
+
+
+
