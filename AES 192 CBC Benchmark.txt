@@ -1,0 +1,72 @@
+--- AES-192 CBC Benchmark Cycle ---
+Free heap before: 51200
+Message Size: 16384
+Average Encryption time (µs): 107321
+Average Decryption time (µs): 175032
+Encryption Throughput (KB/s): 149.09
+Decryption Throughput (KB/s): 91.41
+Heap Before: 51200
+Heap After: 2024
+Heap Used (bytes): 49176
+Free Heap (% of total): 2.47%
+Heap Used (% of total): 60.03%
+--- End of Benchmark Cycle ---
+
+--- AES-192 CBC Benchmark Cycle ---
+Free heap before: 51200
+Message Size: 8192
+Average Encryption time (µs): 53662
+Average Decryption time (µs): 87519
+Encryption Throughput (KB/s): 149.08
+Decryption Throughput (KB/s): 91.41
+Heap Before: 51200
+Heap After: 26600
+Heap Used (bytes): 24600
+Free Heap (% of total): 32.47%
+Heap Used (% of total): 30.03%
+--- End of Benchmark Cycle ---
+
+
+-- AES-192 CBC Benchmark Cycle ---
+Free heap before: 51200
+Message Size: 4096
+Average Encryption time (µs): 26833
+Average Decryption time (µs): 43761
+Encryption Throughput (KB/s): 149.07
+Decryption Throughput (KB/s): 91.41
+Heap Before: 51200
+Heap After: 38888
+Heap Used (bytes): 12312
+Free Heap (% of total): 47.47%
+Heap Used (% of total): 15.03%
+--- End of Benchmark Cycle ---
+
+
+-- AES-192 CBC Benchmark Cycle ---
+Free heap before: 51200
+Message Size: 1024
+Average Encryption time (µs): 6709
+Average Decryption time (µs): 10942
+Encryption Throughput (KB/s): 149.05
+Decryption Throughput (KB/s): 91.39
+Heap Before: 51200
+Heap After: 48104
+Heap Used (bytes): 3096
+Free Heap (% of total): 58.72%
+Heap Used (% of total): 3.78%
+--- End of Benchmark Cycle ---
+
+--- AES-192 CBC Benchmark Cycle ---
+Free heap before: 51200
+Message Size: 512
+Average Encryption time (µs): 3355
+Average Decryption time (µs): 5471
+Encryption Throughput (KB/s): 149.03
+Decryption Throughput (KB/s): 91.39
+Heap Before: 51200
+Heap After: 49640
+Heap Used (bytes): 1560
+Free Heap (% of total): 60.60%
+Heap Used (% of total): 1.90%
+--- End of Benchmark Cycle ---
+
